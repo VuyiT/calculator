@@ -14,12 +14,12 @@ function multiply(a, b) {
 
 function divide(a, b) {
     if (b === 0) return "But Why!";
-     else return a / b;
+    else return a / b;
 }
 
-const firstNumber = null;
-const operator = null;
-const secondNumber = null;
+let firstNumber = null;
+let operator = null;
+let secondNumber = null;
 
 function operate(operator, firstNumber, secondNumber) {
     firstNumber = parseFloat(firstNumber);
@@ -41,4 +41,28 @@ function operate(operator, firstNumber, secondNumber) {
         default:
             return "I don't even know what to say!"                    
     }
+}
+
+const screen = document.querySelector(".screen");
+const numberButtons = document.querySelectorAll(".number"); 
+
+for (let numberButton of Array.from(numberButtons)) {
+    numberButton.addEventListener("click", () => {
+        let buttonText = numberButton.textContent;
+        screen.textContent = buttonText;
+
+        if (operator === null) {
+            if (firstNumber === null) {
+                firstNumber = buttonText;
+            } else {
+                firstNumber += buttonText;
+            }
+        } else {
+            if (secondNumber === null) {
+                secondNumber = buttonText;
+            } else {
+                secondNumber += buttonText;
+            }
+        }
+    })
 }
