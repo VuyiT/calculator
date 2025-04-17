@@ -84,3 +84,16 @@ for (let operatorButton of operatorButtons) {
         }
     })
 }
+
+const equalsButton = document.querySelector(".equal");
+
+equalsButton.addEventListener("click", () => {
+    if (firstNumber !== null && operator !== null && secondNumber !== null) {
+        let result = operate(operator, parseFloat(firstNumber), parseFloat(secondNumber));
+        screen.textContent = result;
+
+        firstNumber = result.toString();
+        operator = null;
+        secondNumber = null;
+    }
+})
