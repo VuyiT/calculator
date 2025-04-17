@@ -97,3 +97,12 @@ equalsButton.addEventListener("click", () => {
         secondNumber = null;
     }
 })
+
+const acButton = document.querySelector(".ac");
+
+acButton.addEventListener("click", () => {
+    firstNumber = null;
+    operator = null;
+    secondNumber = null;
+    screen.textContent = 0;
+})
