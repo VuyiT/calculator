@@ -66,3 +66,21 @@ for (let numberButton of Array.from(numberButtons)) {
         }
     })
 }
+
+const operatorButtons = document.querySelectorAll(".operator");
+
+for (let operatorButton of operatorButtons) {
+    operatorButton.addEventListener("click", () => {
+        let clickedOperator = operatorButton.textContent;
+
+        if (firstNumber !== null && operator !== null && secondNumber !== null) {
+            let result = operate(operator, parseFloat(firstNumber), parseFloat(secondNumber));
+            screen.textContent = result;
+            firstNumber = result.toString();
+            operator = clickedOperator;
+            secondNumber = null;
+        } else if (firstNumber !== null) {
+            operator = clickedOperator;
+        }
+    })
+}
